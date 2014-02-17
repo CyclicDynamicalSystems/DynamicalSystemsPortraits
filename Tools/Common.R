@@ -16,7 +16,7 @@ ode.multi <- function(start, times, derivs) {
   out
 }
 
-save.to.file <- F
+save.to.file <- T
 run.dir <- "./"
 
 save.table <- function(t, filename) {
@@ -27,6 +27,12 @@ save.table <- function(t, filename) {
 save.data <- function(start, equilibriums) {
   save.table(start, "start")
   save.table(equilibriums, "equilibriums")  
+}
+
+load.input <- function(dir) {
+  run.dir <<- dir  
+  source(paste0(run.dir, "Params.R"))
+  source(paste0(run.dir, "Initial.R"))  
 }
 
 lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
@@ -100,4 +106,13 @@ calc.composition <- function(x, composition, composition.expand, var.names) {
   if (save.to.file)
     dev.off()
   list(x = x, y = y, px = px, p = p)
+}
+
+calc.default <- function() {
+  comp <<- calc.composition(composition.x, composition, composition.expand, var.names)
+  d <<- ode.multi(start, times, derivs)  
+}
+
+save.default <- function() {
+  save.data(start, comp$p)
 }

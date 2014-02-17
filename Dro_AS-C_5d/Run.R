@@ -1,22 +1,15 @@
 source("../Tools/Common.R")
 source("Model.R")
-run.dir <- "./Runs/001/"
-save.to.file <- T
-source(paste0(run.dir, "Params.R"))
-source(paste0(run.dir, "Initial.R"))
+load.input("./Runs/001/")
+calc.default()
 
-comp <- calc.composition(seq(0, 2, by=0.01), 
-  composition, composition.expand, var.names)
-data <- ode.multi(start, times, derivs)
-show.plot2d(data, c("time", "x"))
-show.plot2d(data, c("time", "y"))
-show.plot2d(data, c("time", "z"))
-show.plot2d(data, c("time", "u"))
-show.plot2d(data, c("time", "w"))
-show.plot2d(data, c("time", "w"))
-show.scatterplot3d(data, c("x", "y", "z"))
-show.scatterplot3d(data, c("x", "u", "w"))
-show.rgl3d(data, c("x", "y", "z"))
-show.rgl3d(data, c("x", "u", "w"))
+show.plot2d(d, c("time", "x"))
+show.plot2d(d, c("time", "y"))
+show.plot2d(d, c("time", "z"))
+show.plot2d(d, c("time", "u"))
+show.plot2d(d, c("time", "w"))
+show.plot2d(d, c("time", "w"))
+show.scatterplot3d(d, c("x", "y", "z"))
+show.scatterplot3d(d, c("x", "u", "w"))
 
-save.data(start, comp$p)
+save.default()
