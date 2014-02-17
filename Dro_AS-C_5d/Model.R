@@ -23,3 +23,7 @@ derivs <- function(t, state, parameters) {
 
 var.count <- 5
 var.names <- c("x", "y", "z", "u", "w")
+
+composition <- function(x) F1(x, F2(S4(D*x)), S3(D*x), S5(D*x))
+composition.expand <- function(x)
+  c(x, F2(S4(D*x)), S3(D*x), S4(D*x), S5(D*x))

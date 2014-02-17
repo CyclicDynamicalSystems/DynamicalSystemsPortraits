@@ -11,6 +11,11 @@ with open('start.md') as fp:
 	for line in fp:
 		f.write(line)
 f.write('\n\n')
+f.write('# Стационарные точки #\n')
+with open('stat-points.md') as fp:
+	for line in fp:
+		f.write(line)
+f.write('\n\n')
 f.write('# Результаты моделирования #\n')
 for file in os.listdir("./"):
     if file.endswith(".png"):

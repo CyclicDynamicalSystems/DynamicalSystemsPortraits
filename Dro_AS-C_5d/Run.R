@@ -5,6 +5,8 @@ save.to.file <- T
 source(paste0(run.dir, "Params.R"))
 source(paste0(run.dir, "Initial.R"))
 
+comp <- calc.composition(seq(0, 2, by=0.01), 
+  composition, composition.expand, var.names)
 data <- ode.multi(start, times, derivs)
 show.plot2d(data, c("time", "x"))
 show.plot2d(data, c("time", "y"))
@@ -17,4 +19,4 @@ show.scatterplot3d(data, c("x", "u", "w"))
 show.rgl3d(data, c("x", "y", "z"))
 show.rgl3d(data, c("x", "u", "w"))
 
-save.data(start)
+save.data(start, comp$p)

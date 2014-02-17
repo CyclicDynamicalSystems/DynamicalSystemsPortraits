@@ -19,9 +19,14 @@ ode.multi <- function(start, times, derivs) {
 save.to.file <- F
 run.dir <- "./"
 
-save.data <- function(start) {
-  write.csv(start, paste0(run.dir, "start.csv"))
-  write(kable(start, format = "markdown"), paste0(run.dir, "start.md"))
+save.table <- function(t, filename) {
+  write.csv(t, paste0(run.dir, filename, ".csv"))
+  write(capture.output(kable(t, format = "markdown", row.names = T)), paste0(run.dir, filename, ".md"))  
+}
+
+save.data <- function(start, statpoints) {
+  save.table(start, "start")
+  save.table(statpoints, "stat-points")  
 }
 
 lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
@@ -78,4 +83,21 @@ show.scatterplot3d <- function(data, proj) {
                 col=p$cols[i], type="l", lwd=2)
   if (save.to.file)
     dev.off()  
+}
+
+calc.composition <- function(x, composition, composition.expand, var.names) {
+  y <- composition(x)
+  if (save.to.file)
+    CairoPNG(paste0(run.dir, "composition.png"))
+  lplot(x, y)
+  xxlim <- max(c(x, y))
+  lines(c(0, xxlim), c(0, xxlim), col="red")
+  px <- uniroot.all(function(x) composition(x)-x, range(x))
+  points(px, px, col="green", pch=19, cex=1.2)
+  p <- t(sapply(px, composition.expand))
+  colnames(p) <- var.names
+  rownames(p) <- paste0("s", 1:nrow(p))
+  if (save.to.file)
+    dev.off()
+  list(x = x, y = y, px = px, p = p)
 }
