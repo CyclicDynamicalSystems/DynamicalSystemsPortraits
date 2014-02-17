@@ -37,7 +37,7 @@
 |0.020276  |  11.99118|  0.3103338|  0.0007357|  0.1823926|
 
 
-# Modelling results #
+# Modeling results #
 **composition.png**:
 
 ![composition.png](composition.png)

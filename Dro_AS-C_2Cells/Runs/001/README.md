@@ -29,7 +29,7 @@
 |s3  |  1.6319350|  5.7111106|  0.2526583|  0.1322191|  0.086652|  5.9005100|
 
 
-# Modelling results #
+# Modeling results #
 **composition.png**:
 
 ![composition.png](composition.png)
