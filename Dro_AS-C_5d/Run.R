@@ -1,4 +1,4 @@
-source("Common.R")
+source("../Tools/Common.R")
 source("Model.R")
 show <- function(xlim, ylim, zlim, start) {
   proj <- c("x", "y", "z")
