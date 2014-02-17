@@ -24,9 +24,9 @@ save.table <- function(t, filename) {
   write(capture.output(kable(t, format = "markdown", row.names = T)), paste0(run.dir, filename, ".md"))  
 }
 
-save.data <- function(start, statpoints) {
+save.data <- function(start, equilibriums) {
   save.table(start, "start")
-  save.table(statpoints, "stat-points")  
+  save.table(equilibriums, "equilibriums")  
 }
 
 lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
