@@ -1,7 +1,8 @@
 GeneNetworkModels
 =================
-*Подборка моделей генных сетей*
+*Compilation of gene network models*
 
-- **CellComplexes**: модели комплексов клеток
-  - **2Cells_AS-C**: Модель взаимодействия двух клеток в пронейральном кластере крылового имагинального диска D. *mealnogaster* 
+Numerical runs:
 
+- [Dro_AS-C_5d/001](Dro_AS-C_5d/Runs/001)
+- [Dro_AS-C_2Cells/001](Dro_AS-C_2Cells/Runs/001)
