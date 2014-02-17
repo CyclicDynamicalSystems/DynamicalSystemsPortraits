@@ -1,16 +1,10 @@
-# Общее описание #
-Модель взаимодействия двух клеток в пронейральном кластере крылового имагинального диска D. *mealnogaster* 
+# Description #
+D. *mealnogaster* two cell model
 
-# Математическая модель #
-![Model.png](/Images/Model.png)
+# Mathematical model #
+![Model.png](Images/Model.png)
 
-# Скрипты #
-- **common.R**: подключение библиотек и общие функции
-- **model.R**: данные модели
-- **stat-point.R**: поиск стационарных точек
-- **trajectories.R**: построение трёхмерных фазовых портретов
-
-# Используемая литература #
+# References #
 - Furman D.P., Bukharina T.A. How Drosophila melanogaster forms its mechanoreceptors.
 Current Genomics. 2008, v. 8, p. 312 - 323.
 - Фурман Д.П., Бухарина Т.А. Генетический контроль развития макрохет у Drosophila
