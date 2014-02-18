@@ -50,8 +50,10 @@ lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
 show.props <- function(data, proj) {
   xlim <- ifelse(length(proj) >= 1, max(unlist(lapply(data, FUN=function(l)max(l[,proj[1]])))), 0)
   ylim <- ifelse(length(proj) >= 2, max(unlist(lapply(data, FUN=function(l)max(l[,proj[2]])))), 0)
-  zlim <- ifelse(length(proj) >= 3, max(unlist(lapply(data, FUN=function(l)max(l[,proj[3]])))), 0)
+  zlim <- ifelse(length(proj) >= 3, max(unlist(lapply(data, FUN=function(l)max(l[,proj[3]])))), 0)  
   cols <- rainbow(length(data))
+  if (exists("traj.cols"))
+    cols <- traj.cols
   list(xlim = xlim, ylim = ylim, zlim = zlim, cols = cols)
 }
 
@@ -96,7 +98,7 @@ calc.composition <- function(x, composition, composition.expand, var.names) {
   if (save.to.file)
     CairoPNG(paste0(run.dir, "composition.png"))
   lplot(x, y)
-  xxlim <- max(c(x, y))
+  xxlim <- max(c(x, y))  
   lines(c(0, xxlim), c(0, xxlim), col="red")
   px <- uniroot.all(function(x) composition(x)-x, range(x))
   points(px, px, col="green", pch=19, cex=1.2)
@@ -110,7 +112,7 @@ calc.composition <- function(x, composition, composition.expand, var.names) {
 
 calc.default <- function() {
   comp <<- calc.composition(composition.x, composition, composition.expand, var.names)
-  d <<- ode.multi(start, times, derivs)  
+  res <<- ode.multi(start, times, derivs)  
 }
 
 save.default <- function() {

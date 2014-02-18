@@ -9,21 +9,23 @@ F2 <- function(u)  C / (1 + u)
 S3 <- function(Dx) S(Dx, A3, B3, k3)
 S4 <- function(Dx) S(Dx, A4, B4, k4)
 S5 <- function(Dx) S(Dx, A5, B5, k5)
+S6 <- function(Dx) S(Dx, A6, B6, k6)
 
 derivs <- function(t, state, parameters) {
   with(as.list(c(state)), {
-    dx <- F1(x, y, z, w) - x
+    dx <- F1(x, y, z, w) - x * (1 + p * U)
     dy <- F2(u)          - y
     dz <- S3(D * x)      - z
     du <- S4(D * x)      - u
     dw <- S5(D * x)      - w
-    list(c(dx, dy, dz, du, dw))
+    dp <- S6(D * x)      - p
+    list(c(dx, dy, dz, du, dw, dp))
   })
 }
 
-var.count <- 5
-var.names <- c("x", "y", "z", "u", "w")
+var.count <- 6
+var.names <- c("x", "y", "z", "u", "w", "p")
 
-composition <- function(x) F1(x, F2(S4(D*x)), S3(D*x), S5(D*x))
+composition <- function(x) F1(x, F2(S4(D*x)), S3(D*x), S5(D*x)) / (1 + S6(D*x)*U)
 composition.expand <- function(x)
-  c(x, F2(S4(D*x)), S3(D*x), S4(D*x), S5(D*x))
+  c(x, F2(S4(D*x)), S3(D*x), S4(D*x), S5(D*x), S6(D*x))
