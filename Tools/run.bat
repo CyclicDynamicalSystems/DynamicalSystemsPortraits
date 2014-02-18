@@ -1,10 +1,10 @@
 python clear.py
 
-cd ..\Dro_AS-C_2Cells\
+cd ..\Dro-ASC-2Cells\
 RScript.exe Run.R
-cd ..\Dro_AS-C_5d\
+cd ..\Dro-ASC-5d\
 RScript.exe Run.R
-cd ..\Dro_AS-C_6d\
+cd ..\Dro-ASC-6d\
 RScript.exe Run.R
 cd ..\Tools\
 
