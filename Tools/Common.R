@@ -101,7 +101,10 @@ calc.composition <- function(x, composition, composition.expand, var.names) {
   xxlim <- max(c(x, y))  
   lines(c(0, xxlim), c(0, xxlim), col="red")
   px <- uniroot.all(function(x) composition(x)-x, range(x))
-  points(px, px, col="green", pch=19, cex=1.2)
+  points(px, px, col="chartreuse4", pch=19, cex=1.2)
+  if (exists("composition.labeloffset.x"))
+    text(px + composition.labeloffset.x, px + composition.labeloffset.y, 
+         label=1:length(px), cex=2, pos=3, col="chartreuse4")
   p <- t(sapply(px, composition.expand))
   colnames(p) <- var.names
   rownames(p) <- paste0("s", 1:nrow(p))

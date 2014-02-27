@@ -12,3 +12,5 @@ start <- matrix(
 traj.cols <- c("red", "darkgreen", "blue", "maroon", "orange", "brown")
 times <- seq(0, 100, by = 0.1)
 composition.x <- seq(0, 2, by=0.005)
+composition.labeloffset.x <- c(-0.05, -0.07, -0.05, -0.08, 0)
+composition.labeloffset.y <- c(0, 0, -0.005, -0.01, 0.03)
