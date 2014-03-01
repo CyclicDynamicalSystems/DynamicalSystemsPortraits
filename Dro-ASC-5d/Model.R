@@ -1,4 +1,4 @@
-sigma <- function(v, d) d * v^4 / (1 + v^4)
+sigma <- function(v, d) d * v^gamma / (1 + v^gamma)
 S <- function(Dx, A, B, k) B * exp(k * (Dx - A)) / (1 + exp(k * (Dx - A)))
 sigma1 <- function(v) sigma(v, d1)
 sigma3 <- function(v) sigma(v, d3)

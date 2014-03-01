@@ -15,6 +15,7 @@
 	D  =  1.5
 	E  =  4.0
 	G  =  3.0
+	gamma = 4
 
 # Initial data #
 |id  |     x|     y|     z|     u|     w|

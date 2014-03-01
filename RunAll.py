@@ -10,15 +10,17 @@ def build_readme(script_dir, run_dir):
 		for line in fp:
 			f.write('\t' + line.replace("<-", "="))
 	f.write('\n\n')
-	f.write('# Initial data #\n')
-	with open(os.path.join(run_dir, 'start.md')) as fp:
-		for line in fp:
-			f.write(line)
+	if (os.path.isfile(os.path.join(run_dir, 'start.md'))):
+		f.write('# Initial data #\n')	
+		with open(os.path.join(run_dir, 'start.md')) as fp:
+			for line in fp:
+				f.write(line)
 	f.write('\n\n')
-	f.write('# Equilibrium points #\n')
-	with open(os.path.join(run_dir, 'equilibriums.md')) as fp:
-		for line in fp:
-			f.write(line)
+	if (os.path.isfile(os.path.join(run_dir, 'equilibriums.md'))):
+		f.write('# Equilibrium points #\n')
+		with open(os.path.join(run_dir, 'equilibriums.md')) as fp:
+			for line in fp:
+				f.write(line)
 	f.write('\n\n')
 	f.write('# Modeling results #\n')
 	for file in os.listdir(run_dir):
