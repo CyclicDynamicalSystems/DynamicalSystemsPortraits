@@ -17,22 +17,15 @@ ode.multi <- function(start, times, derivs) {
 }
 
 save.to.file <- T
-run.dir <- "./"
 
 save.table <- function(t, filename) {
-  write.csv(t, paste0(run.dir, filename, ".csv"))
-  write(capture.output(kable(t, format = "markdown", row.names = T)), paste0(run.dir, filename, ".md"))  
+  write.csv(t, file.path(run.dir, paste0(filename, ".csv")))
+  write(capture.output(kable(t, format = "markdown", row.names = T)), file.path(run.dir, paste0(filename, ".md")))
 }
 
 save.data <- function(start, equilibriums) {
   save.table(start, "start")
   save.table(equilibriums, "equilibriums")  
-}
-
-load.input <- function(dir) {
-  run.dir <<- dir  
-  source(paste0(run.dir, "Params.R"))
-  source(paste0(run.dir, "Initial.R"))  
 }
 
 lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
@@ -68,7 +61,7 @@ show.rgl3d <- function(data, proj) {
 
 show.plot2d <- function(data, proj) {
   if (save.to.file)
-    CairoPNG(paste0(run.dir, "plot-", proj[1], "-", proj[2], ".png"))
+    CairoPNG(file.path(run.dir, paste0("plot-", proj[1], "-", proj[2], ".png")))
   p <- show.props(data, proj)
   plot(c(0,p$xlim), c(0,p$ylim),
        xlab=proj[1], ylab=proj[2],
@@ -81,7 +74,7 @@ show.plot2d <- function(data, proj) {
 
 show.scatterplot3d <- function(data, proj) {
   if (save.to.file)
-    CairoPNG(paste0(run.dir, "plot-", proj[1], "-", proj[2], "-", proj[3], ".png"))
+    CairoPNG(file.path(run.dir, paste0("plot-", proj[1], "-", proj[2], "-", proj[3], ".png")))
   p <- show.props(data, proj)
   s3d <- scatterplot3d(c(0,p$xlim), c(0,p$ylim), c(0,p$zlim),
                 xlab=proj[1], ylab=proj[2], zlab=proj[3], 
@@ -96,7 +89,7 @@ show.scatterplot3d <- function(data, proj) {
 calc.composition <- function(x, composition, composition.expand, var.names) {
   y <- composition(x)
   if (save.to.file)
-    CairoPNG(paste0(run.dir, "composition.png"))
+    CairoPNG(file.path(run.dir, "composition.png"))
   lplot(x, y)
   xxlim <- max(c(x, y))  
   lines(c(0, xxlim), c(0, xxlim), col="red")

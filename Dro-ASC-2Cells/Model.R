@@ -26,3 +26,18 @@ composition.expand <- function(x1) {
   z1 <- g(y2)  
   c(x1, y1, z1, x2, y2, z2)
 }
+
+run <- function() {
+  calc.default()
+
+  show.plot2d(res, c("time", "x1"))
+  show.plot2d(res, c("time", "y1"))
+  show.plot2d(res, c("time", "z1"))
+  show.plot2d(res, c("time", "x2"))
+  show.plot2d(res, c("time", "y2"))
+  show.plot2d(res, c("time", "z2"))
+  show.scatterplot3d(res, c("x1", "y1", "z1"))
+  show.scatterplot3d(res, c("z2", "y2", "x2"))
+
+  save.default()
+}

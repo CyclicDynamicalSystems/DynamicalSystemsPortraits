@@ -29,3 +29,19 @@ var.names <- c("x", "y", "z", "u", "w", "p")
 composition <- function(x) F1(x, F2(S4(D*x)), S3(D*x), S5(D*x)) / (1 + S6(D*x)*U)
 composition.expand <- function(x)
   c(x, F2(S4(D*x)), S3(D*x), S4(D*x), S5(D*x), S6(D*x))
+
+run <- function() {
+  calc.default()
+
+  show.plot2d(res, c("time", "x"))
+  show.plot2d(res, c("time", "y"))
+  show.plot2d(res, c("time", "z"))
+  show.plot2d(res, c("time", "u"))
+  show.plot2d(res, c("time", "w"))
+  show.plot2d(res, c("time", "p"))
+  show.scatterplot3d(res, c("x", "y", "z"))
+  show.scatterplot3d(res, c("x", "u", "w"))
+  show.scatterplot3d(res, c("u", "w", "p"))
+
+  save.default()
+}
