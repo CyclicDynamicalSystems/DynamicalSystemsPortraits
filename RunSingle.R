@@ -3,8 +3,8 @@ source("Tools/Common.R")
 
 args <- commandArgs(trailingOnly = TRUE)
 
-model.dir <- ifelse(length(args) >= 1, args[1], "Dro-ASC-5d")
-run.number <- ifelse(length(args) >= 2, args[2], "001")
+model.dir <- ifelse(length(args) >= 1, args[1], "Lorenz")
+run.number <- ifelse(length(args) >= 2, args[2], "Classic")
 
 input.dir <- file.path(model.dir, "Input", run.number)
 runs.dir <- file.path(model.dir, "Runs")

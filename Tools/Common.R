@@ -41,18 +41,21 @@ lplot <- function(x, y, col="black", xlab="", ylab="", lwd=2) {
 }
 
 show.props <- function(data, proj) {
-  xlim <- ifelse(length(proj) >= 1, max(unlist(lapply(data, FUN=function(l)max(l[,proj[1]])))), 0)
-  ylim <- ifelse(length(proj) >= 2, max(unlist(lapply(data, FUN=function(l)max(l[,proj[2]])))), 0)
-  zlim <- ifelse(length(proj) >= 3, max(unlist(lapply(data, FUN=function(l)max(l[,proj[3]])))), 0)  
+  xmin <- ifelse(length(proj) >= 1, min(unlist(lapply(data, FUN=function(l)min(l[,proj[1]])))), 0)
+  ymin <- ifelse(length(proj) >= 2, min(unlist(lapply(data, FUN=function(l)min(l[,proj[2]])))), 0)
+  zmin <- ifelse(length(proj) >= 3, min(unlist(lapply(data, FUN=function(l)min(l[,proj[3]])))), 0)  
+  xmax <- ifelse(length(proj) >= 1, max(unlist(lapply(data, FUN=function(l)max(l[,proj[1]])))), 0)
+  ymax <- ifelse(length(proj) >= 2, max(unlist(lapply(data, FUN=function(l)max(l[,proj[2]])))), 0)
+  zmax <- ifelse(length(proj) >= 3, max(unlist(lapply(data, FUN=function(l)max(l[,proj[3]])))), 0)  
   cols <- rainbow(length(data))
   if (exists("traj.cols"))
     cols <- traj.cols
-  list(xlim = xlim, ylim = ylim, zlim = zlim, cols = cols)
+  list(xmin = xmin, ymin = ymin, zmin = zmin, xmax = xmax, ymax = ymax, zmax = zmax, cols = cols)
 }
 
 show.rgl3d <- function(data, proj) {
   p <- show.props(data, proj)
-  plot3d(c(0,p$xlim), c(0,p$ylim), c(0,p$zlim),
+  plot3d(c(p$xmin,p$xmax), c(p$ymin,p$ymax), c(p$zmin,p$zmax),
          xlab=proj[1], ylab=proj[2], zlab=proj[3], 
          type="n", axes=T)  
   for (i in 1:length(data))
@@ -63,7 +66,7 @@ show.plot2d <- function(data, proj) {
   if (save.to.file)
     CairoPNG(file.path(run.dir, paste0("plot-", proj[1], "-", proj[2], ".png")))
   p <- show.props(data, proj)
-  plot(c(0,p$xlim), c(0,p$ylim),
+  plot(c(p$xmin,p$xmax), c(p$ymin,p$ymax),
        xlab=proj[1], ylab=proj[2],
        type="n")
   for (i in 1:length(data))
@@ -72,16 +75,16 @@ show.plot2d <- function(data, proj) {
     dev.off()
 }
 
-show.scatterplot3d <- function(data, proj) {
+show.scatterplot3d <- function(data, proj, lwd=2) {
   if (save.to.file)
     CairoPNG(file.path(run.dir, paste0("plot-", proj[1], "-", proj[2], "-", proj[3], ".png")))
   p <- show.props(data, proj)
-  s3d <- scatterplot3d(c(0,p$xlim), c(0,p$ylim), c(0,p$zlim),
+  s3d <- scatterplot3d(c(p$xmin,p$xmax), c(p$ymin,p$ymax), c(p$zmin,p$zmax),
                 xlab=proj[1], ylab=proj[2], zlab=proj[3], 
                 type="n")
   for (i in 1:length(data))
     s3d$points3d(data[[i]][,proj[1]], data[[i]][,proj[2]], data[[i]][,proj[3]], 
-                col=p$cols[i], type="l", lwd=2)
+                col=p$cols[i], type="l", lwd=lwd)
   if (save.to.file)
     dev.off()  
 }
