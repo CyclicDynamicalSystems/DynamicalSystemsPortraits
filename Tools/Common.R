@@ -48,6 +48,8 @@ show.props <- function(data, proj) {
   ymax <- ifelse(length(proj) >= 2, max(unlist(lapply(data, FUN=function(l)max(l[,proj[2]])))), 0)
   zmax <- ifelse(length(proj) >= 3, max(unlist(lapply(data, FUN=function(l)max(l[,proj[3]])))), 0)  
   cols <- rainbow(length(data))
+  if (length(data) == 1)
+    cols <- c("blue")
   if (exists("traj.cols"))
     cols <- traj.cols
   list(xmin = xmin, ymin = ymin, zmin = zmin, xmax = xmax, ymax = ymax, zmax = zmax, cols = cols)
