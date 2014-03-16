@@ -1,4 +1,5 @@
 Lorenz
+Rossler
 EulerRigidBody
 RabinovichFabrikant
 GeneNetworkModels/Dro-ASC-2Cells

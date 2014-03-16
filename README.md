@@ -5,6 +5,7 @@ DynamicalSystemsPortraits
 Dynamical systems:
 
 - [Lorenz](Lorenz)
+- [Rossler](Rossler)
 - [EulerRigidBody](EulerRigidBody)
 - [RabinovichFabrikant](RabinovichFabrikant)
 - [GeneNetworkModels/Dro-ASC-2Cells](GeneNetworkModels/Dro-ASC-2Cells)
@@ -15,6 +16,10 @@ Dynamical systems:
 **Lorenz**:
 
 ![Lorenz](Lorenz/Runs/Classic/plot-x-y-z.png)
+
+**Rossler**:
+
+![Rossler](Rossler/Runs/Classic/plot-x-y-z.png)
 
 **EulerRigidBody**:
 
