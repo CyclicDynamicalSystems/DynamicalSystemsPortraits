@@ -7,6 +7,7 @@ Dynamical systems:
 - [Lorenz](Lorenz)
 - [Rossler](Rossler)
 - [ThomasLabyrinthChaos](ThomasLabyrinthChaos)
+- [ChenUeta](ChenUeta)
 - [NoseHoover](NoseHoover)
 - [SprottChaoticFlow](SprottChaoticFlow)
 - [EulerRigidBody](EulerRigidBody)

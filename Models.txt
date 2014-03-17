@@ -1,6 +1,7 @@
 Lorenz
 Rossler
 ThomasLabyrinthChaos
+ChenUeta
 NoseHoover
 SprottChaoticFlow
 EulerRigidBody
