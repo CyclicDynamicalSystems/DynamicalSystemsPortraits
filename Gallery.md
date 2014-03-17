@@ -10,6 +10,10 @@
 
 ![ThomasLabyrinthChaos](ThomasLabyrinthChaos/Runs/Hamiltonian/plot-x-y-z.png)
 
+**NoseHoover**:
+
+![NoseHoover](NoseHoover/Runs/Classic/plot-x-y-z.png)
+
 **EulerRigidBody**:
 
 ![EulerRigidBody](EulerRigidBody/Runs/Classic/plot-y1-y2-y3.png)

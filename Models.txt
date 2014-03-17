@@ -1,6 +1,7 @@
 Lorenz
 Rossler
 ThomasLabyrinthChaos
+NoseHoover
 SprottChaoticFlow
 EulerRigidBody
 RabinovichFabrikant
