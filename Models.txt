@@ -1,5 +1,6 @@
 Lorenz
 Rossler
+ThomasLabyrinthChaos
 SprottChaoticFlow
 EulerRigidBody
 RabinovichFabrikant
