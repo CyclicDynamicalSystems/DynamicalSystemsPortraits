@@ -4,7 +4,8 @@ sigma1 <- function(v) sigma(v, d1)
 sigma3 <- function(v) sigma(v, d3)
 sigma5 <- function(v) sigma(v, d5)
 
-F1 <- function(x, y, z, w) (sigma1(D*x) + sigma3(z) + sigma5(w))/(1+G*y)/(1+E*x)
+F1 <- function(x, y, z, w) (sigma1(D*x) + sigma3(z) + sigma5(w)) / 
+                           (1+G*y) / (1+E*x) / (1+U*x)
 F2 <- function(u)  C / (1 + u)
 S3 <- function(Dx) S(Dx, A3, B3, k3)
 S4 <- function(Dx) S(Dx, A4, B4, k4)

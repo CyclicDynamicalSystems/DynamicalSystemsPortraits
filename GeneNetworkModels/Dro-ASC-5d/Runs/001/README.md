@@ -15,6 +15,7 @@
 	D  =  1.5
 	E  =  4.0
 	G  =  3.0
+	U  =  0.0
 	gamma = 4
 
 # Initial data #

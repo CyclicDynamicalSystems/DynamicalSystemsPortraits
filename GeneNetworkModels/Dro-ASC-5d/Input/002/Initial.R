@@ -1,6 +1,6 @@
 composition.x <- seq(0, 3, by=0.01)
 
-R2 <- function(x) composition(x) / (1 + x * U)
+R2 <- function(x) composition(x) / (1 + x)
 
 run <- function() {
   save.to.file <<- F

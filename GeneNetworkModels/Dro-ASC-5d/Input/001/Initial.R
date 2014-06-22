@@ -1,4 +1,3 @@
-set.seed(1)
 start.count <- 4
 start <- matrix(
   c(0.26,0.37,0.57,0.90,0.20,
